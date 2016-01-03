@@ -1,22 +1,17 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(teensy_test)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  ros_teensy
-  rosserial_client
-  roscpp
-  rospy
-  rosserial_arduino
-  std_msgs
-  message_generation
+    ros_teensy
+    rosserial_client
+    rosserial_arduino
+    std_msgs
+    message_generation
 )
 
 add_service_files(FILES
-                 ToggleLed.srv
-                )
+    ToggleLed.srv
+)
 
 generate_messages()
 
@@ -31,8 +26,8 @@ rosserial_configure_client(
 )
 
 rosserial_configure_client(
-   DIRECTORY blink
-   TOOLCHAIN_FILE ${ROS_TEENSY_TOOLCHAIN}
+    DIRECTORY blink
+    TOOLCHAIN_FILE ${ROS_TEENSY_TOOLCHAIN}
 )
 
 rosserial_add_client_target(drive driver_Firmware ALL)
