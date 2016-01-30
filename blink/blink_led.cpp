@@ -8,6 +8,6 @@ void setup()
 void loop()
 {
     digitalWrite(13, !digitalRead(13)); 
-    delay(100);
+    delay(1000);
 }
 
